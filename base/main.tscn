@@ -29,3 +29,9 @@ texture = ExtResource("4_gwsun")
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("5_pex66")]
 unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.6
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

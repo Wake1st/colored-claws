@@ -14,8 +14,12 @@ var pixel_count: float
 
 
 func setup() -> void:
-	image = Image.load_from_file(NAIL_PATH)
-	sprite.texture = ImageTexture.create_from_image(image)
+	pixel_changes.clear()
+	pixel_count = 0
+	
+	var texture: CompressedTexture2D = load(NAIL_PATH)
+	sprite.texture = texture
+	image = texture.get_image()
 	
 	for j in image.get_height():
 		for i in image.get_width():

@@ -1,5 +1,8 @@
 # Colored Claws
 
+
+You can play the game [here](https://wake1st.itch.io/colored-claws).
+
 ## Credits
 
 - Inspiration | [Cute Games Club](https://www.youtube.com/@cutegamesclub)
