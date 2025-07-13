@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmsk07dhl53v1"]
+
+[ext_resource type="PackedScene" uid="uid://cqw6q088qb4dy" path="res://body/nail.tscn" id="1_qivns"]
+
+[node name="TestNail" type="Node2D"]
+
+[node name="Nail" parent="." instance=ExtResource("1_qivns")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

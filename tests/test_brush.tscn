@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdjn2vcxjtprs"]
+
+[ext_resource type="PackedScene" uid="uid://dotua67jeg5fg" path="res://tools/brush.tscn" id="1_ulp7j"]
+
+[node name="TestBrush" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Brush" parent="." instance=ExtResource("1_ulp7j")]

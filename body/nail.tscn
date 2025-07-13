@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqw6q088qb4dy"]
+
+[ext_resource type="Script" uid="uid://c4s0nntecstb7" path="res://body/nail.gd" id="1_u3sbl"]
+[ext_resource type="Texture2D" uid="uid://tyv5dc5wnbdc" path="res://assets/textures/finger.png" id="2_t4bkh"]
+[ext_resource type="Texture2D" uid="uid://b4c024v66mqbg" path="res://assets/textures/nail.png" id="2_uakte"]
+
+[node name="Nail" type="Node2D"]
+script = ExtResource("1_u3sbl")
+
+[node name="Finger" type="Sprite2D" parent="."]
+position = Vector2(0, 205)
+texture = ExtResource("2_t4bkh")
+
+[node name="Cuticle" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_uakte")

@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://cof0q42w27hb4"]
+
+[ext_resource type="Script" uid="uid://dofaksfjn7ble" path="res://work/work_zone.gd" id="1_ax42b"]
+[ext_resource type="PackedScene" uid="uid://cqw6q088qb4dy" path="res://body/nail.tscn" id="1_yga80"]
+[ext_resource type="PackedScene" uid="uid://dotua67jeg5fg" path="res://tools/brush.tscn" id="2_ax42b"]
+
+[node name="WorkZone" type="Node2D"]
+script = ExtResource("1_ax42b")
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(0, 43)
+
+[node name="Nail1" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(-655, 78)
+rotation = -0.0463906
+scale = Vector2(1, 1)
+
+[node name="Nail2" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(-535, -15)
+rotation = -0.0231981
+
+[node name="Nail3" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(-399, -37)
+rotation = -0.000822331
+scale = Vector2(1, 1)
+
+[node name="Nail4" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(-273, 12)
+rotation = 0.0574279
+
+[node name="Nail5" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(-131, 226)
+rotation = 0.197339
+scale = Vector2(1, 1)
+
+[node name="Nail6" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(123, 240)
+rotation = -0.151426
+scale = Vector2(1, 1)
+
+[node name="Nail7" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(250, 17)
+rotation = -0.0445463
+
+[node name="Nail8" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(374, -34)
+rotation = -0.00261927
+scale = Vector2(1, 1)
+
+[node name="Nail9" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(516, -12)
+rotation = 0.0134414
+scale = Vector2(1, 1)
+
+[node name="Nail10" parent="Hand" instance=ExtResource("1_yga80")]
+unique_name_in_owner = true
+position = Vector2(644, 61)
+rotation = 0.0503265
+
+[node name="Brush" parent="." instance=ExtResource("2_ax42b")]
+position = Vector2(0, -45)

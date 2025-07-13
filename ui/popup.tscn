@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b45isd8o8y2li"]
+
+[ext_resource type="Texture2D" uid="uid://bq6u4hdea88gc" path="res://assets/ui/fab.png" id="1_vl531"]
+
+[node name="Popup" type="Sprite2D"]
+texture = ExtResource("1_vl531")

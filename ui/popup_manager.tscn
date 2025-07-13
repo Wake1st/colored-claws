@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyj3qmek05tbh"]
+
+[ext_resource type="Script" uid="uid://bdfg7b785834i" path="res://ui/popup_manager.gd" id="1_mwdkx"]
+[ext_resource type="PackedScene" uid="uid://b45isd8o8y2li" path="res://ui/popup.tscn" id="1_tvm0h"]
+
+[node name="PopupManager" type="Node2D"]
+script = ExtResource("1_mwdkx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="Popup" parent="." instance=ExtResource("1_tvm0h")]
+position = Vector2(0, 1400)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
