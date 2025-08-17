@@ -14,10 +14,10 @@ You can play the game [here](https://wake1st.itch.io/colored-claws).
 - [x] draw a nail
 	- [x] basic shape
 	- [x] realistic
-- [ ] brush 
+- [x] brush 
 	- [x] art
 	- [x] movement (left hold to "activate", right hold to "swivle")
-	- [ ] fanning? (scroll wheel)
+	- [x] fanning? (scroll wheel)
 - [x] color picking
 - [ ] cleaning pad?
 - [x] fingers
@@ -33,6 +33,22 @@ You can play the game [here](https://wake1st.itch.io/colored-claws).
 	- [ ] apply (polish, stickers)
 	- [ ] gel
 	- [ ] massage 
-- [ ] when is it good enough?
+- [ ] when is it fab?
 	- [x] checking completeness?
 	- [ ] checking quality?
+- [ ] story
+	- [ ] act 1
+		- [ ] grandma taught us
+		- [ ] first day on the job
+	- [ ] act 2.1
+		- [ ] getting supplies
+		- [ ] new customers
+		- [ ] paying the rent
+	- [ ] act 2.2
+		- [ ] tougher customers
+		- [ ] more expensive supplies
+		- [ ] sabatoge
+	- [ ] act 3
+		- [ ] helping a friend (inspired)
+		- [ ] back in the sadle (apply new technique - confront bullies)
+		- [ ] business booms (new look is hottt - business is saved)

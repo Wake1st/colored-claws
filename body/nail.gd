@@ -33,8 +33,9 @@ func setup() -> void:
 
 
 func brush(data: BrushData) -> float:
-	var offset = data.position - global_position + sprite.texture.get_size()/2
-	image = Paint.draw_line(image, offset, data.width, data.angle, data.color)
+	var start = data.start_position - global_position + sprite.texture.get_size()/2
+	var end = data.end_position - global_position + sprite.texture.get_size()/2
+	image = Paint.draw_line(image, start, end, data.width, data.angle, data.color)
 	sprite.texture = ImageTexture.create_from_image(image)
 	
 	# note changes
