@@ -12,10 +12,13 @@ var color: Color
 var active: bool
 var pivoting: bool
 
+var last_position: Vector2
+
 
 func get_data() -> BrushData:
 	var data: BrushData = BrushData.new()
-	data.position = global_position
+	data.start_position = last_position
+	data.end_position = global_position
 	data.angle = rotation
 	data.width = width
 	data.color = color
@@ -29,6 +32,7 @@ func _process(_delta) -> void:
 		var vector = global_position.direction_to(mouse)
 		rotation = vector.angle() + ROTATION_OFFSET
 	else:
+		last_position = position
 		position = mouse - hold_offset
 
 

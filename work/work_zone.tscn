@@ -14,7 +14,6 @@ position = Vector2(0, 43)
 unique_name_in_owner = true
 position = Vector2(-655, 78)
 rotation = -0.0463906
-scale = Vector2(1, 1)
 
 [node name="Nail2" parent="Hand" instance=ExtResource("1_yga80")]
 unique_name_in_owner = true
@@ -25,7 +24,6 @@ rotation = -0.0231981
 unique_name_in_owner = true
 position = Vector2(-399, -37)
 rotation = -0.000822331
-scale = Vector2(1, 1)
 
 [node name="Nail4" parent="Hand" instance=ExtResource("1_yga80")]
 unique_name_in_owner = true
@@ -36,13 +34,11 @@ rotation = 0.0574279
 unique_name_in_owner = true
 position = Vector2(-131, 226)
 rotation = 0.197339
-scale = Vector2(1, 1)
 
 [node name="Nail6" parent="Hand" instance=ExtResource("1_yga80")]
 unique_name_in_owner = true
 position = Vector2(123, 240)
 rotation = -0.151426
-scale = Vector2(1, 1)
 
 [node name="Nail7" parent="Hand" instance=ExtResource("1_yga80")]
 unique_name_in_owner = true
@@ -53,13 +49,11 @@ rotation = -0.0445463
 unique_name_in_owner = true
 position = Vector2(374, -34)
 rotation = -0.00261927
-scale = Vector2(1, 1)
 
 [node name="Nail9" parent="Hand" instance=ExtResource("1_yga80")]
 unique_name_in_owner = true
 position = Vector2(516, -12)
 rotation = 0.0134414
-scale = Vector2(1, 1)
 
 [node name="Nail10" parent="Hand" instance=ExtResource("1_yga80")]
 unique_name_in_owner = true
