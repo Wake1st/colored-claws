@@ -21,6 +21,19 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1600
 window/size/viewport_height=900
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "gray",
+"res://base/": "purple",
+"res://body/": "yellow",
+"res://resources/": "gray",
+"res://tests/": "red",
+"res://tools/": "yellow",
+"res://ui/": "orange",
+"res://work/": "yellow"
+}
+
 [input]
 
 activate_brush={

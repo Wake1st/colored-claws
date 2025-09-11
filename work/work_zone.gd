@@ -27,6 +27,8 @@ var completed: bool
 
 
 func setup() -> void:
+	# reset commands
+	Commands.clear()
 	completed = false
 	
 	for nail: Nail in hand.get_children():
@@ -64,3 +66,11 @@ func _process(_delta) -> void:
 		if !completed && progress > COMPLETENESS:
 			emit_signal("job_complete")
 			completed = true
+	
+	# check commands
+	if event.is_action_pressed("ui_undo"):
+		var cmd: Command = Commands.undo()
+		cmd.execute()
+	elif event.is_action_pressed("ui_redo"):
+		var cmd: Command = Commands.redo()
+		cmd.execute()

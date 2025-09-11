@@ -33,6 +33,10 @@ func setup() -> void:
 
 
 func brush(data: BrushData) -> float:
+	# store the pre-updated image
+	Commands.add(self, image.duplicate(true))
+	
+	# draw new image and blend
 	var start = data.start_position - global_position + sprite.texture.get_size()/2
 	var end = data.end_position - global_position + sprite.texture.get_size()/2
 	image = Paint.draw_line(image, start, end, data.width, data.angle, data.color)
@@ -53,3 +57,12 @@ func brush(data: BrushData) -> float:
 	
 	# update progress and check win
 	return pixel_changes.size() / pixel_count
+
+
+func set_texture(img: Image) -> void:
+	print("image -> %s\t%s" % [image, img])
+	
+	var texture = ImageTexture.create_from_image(img)
+	print("texture -> %s\t%s" % [sprite.texture, texture])
+	
+	sprite.texture = texture
