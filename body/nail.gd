@@ -33,9 +33,6 @@ func setup() -> void:
 
 
 func brush(data: BrushData) -> float:
-	# store the pre-updated image
-	Commands.add(self, image.duplicate(true))
-	
 	# draw new image and blend
 	var start = data.start_position - global_position + sprite.texture.get_size()/2
 	var end = data.end_position - global_position + sprite.texture.get_size()/2
@@ -66,3 +63,7 @@ func set_texture(img: Image) -> void:
 	print("texture -> %s\t%s" % [sprite.texture, texture])
 	
 	sprite.texture = texture
+
+
+func get_rect() -> Rect2:
+	return sprite.get_rect()

@@ -21,6 +21,9 @@ You can play the game [here](https://wake1st.itch.io/colored-claws).
 - [x] color picking
 - [ ] cleaning pad?
 - [x] fingers
+- [ ] command pattern
+	- [x] basics
+	- [ ] fix: multiple nail writes
 - [ ] table
 	- [ ] color box
 	- [ ] brushs

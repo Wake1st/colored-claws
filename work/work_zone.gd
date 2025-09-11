@@ -24,6 +24,8 @@ const COMPLETENESS: float = 0.87
 
 var nails: Array[Nail]
 var completed: bool
+var active_nail: Nail
+var before_image: Image
 
 
 func setup() -> void:
@@ -49,6 +51,7 @@ func update_brush(color: Color) -> void:
 
 func _ready() -> void:
 	for nail: Nail in hand.get_children():
+		# setup nail
 		nail.setup()
 		nails.push_back(nail)
 	
@@ -56,21 +59,56 @@ func _ready() -> void:
 
 
 func _process(_delta) -> void:
-	if brush.active:
+	if brush.active: 
 		var data: BrushData = brush.get_data()
 		
 		var progress: float = 0
 		for nail in nails:
-			progress += nail.brush(data) * 0.1
+			# only update the nail we draw to
+			if _check_brush_bounds(data, nail):
+				# store start for commands
+				if active_nail == null:
+					active_nail = nail
+					before_image = nail.image.duplicate(true)
+				
+				# draw on the nail
+				progress += nail.brush(data) * 0.1
 		
 		if !completed && progress > COMPLETENESS:
 			emit_signal("job_complete")
 			completed = true
-	
-	# check commands
+	elif active_nail:
+		# store complete change
+		Commands.add(active_nail, before_image, active_nail.image.duplicate(true))
+		active_nail = null
+		before_image = null
+
+
+func _input(event) -> void:
 	if event.is_action_pressed("ui_undo"):
 		var cmd: Command = Commands.undo()
-		cmd.execute()
+		if cmd:
+			cmd.undo()
 	elif event.is_action_pressed("ui_redo"):
 		var cmd: Command = Commands.redo()
-		cmd.execute()
+		if cmd:
+			cmd.redo()
+
+
+func _check_brush_bounds(data: BrushData, nail: Nail) -> bool:
+	var rect: Rect2 = nail.get_rect()
+	rect.position += nail.global_position
+	
+	var arm = Vector2(data.width/2, 0)
+	arm.rotated(data.angle)
+	
+	var start_neg = data.start_position - arm
+	var start_pos = data.start_position + arm
+	var end_neg = data.end_position - arm
+	var end_pos = data.end_position + arm
+	
+	return (
+		rect.has_point(start_neg) || rect.has_point(start_pos)
+	) || (
+		rect.has_point(end_neg) || rect.has_point(end_pos)
+	)

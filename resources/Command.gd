@@ -2,13 +2,17 @@ class_name Command
 
 
 var nail: Nail
-var image: Image
+var before: Image
+var after: Image
 
 
-func _init(_nail: Nail, _img: Image) -> void:
+func _init(_nail: Nail, _before: Image, _after: Image) -> void:
 	nail = _nail
-	image = _img
+	before = _before
+	after = _after
 
+func undo() -> void:
+	nail.set_texture(before)
 
-func execute() -> void:
-	nail.set_texture(image)
+func redo() -> void:
+	nail.set_texture(after)
