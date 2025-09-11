@@ -13,7 +13,6 @@ static func add(nail: Nail, before: Image, after: Image) -> void:
 	
 	# shift index and insert
 	commands.insert(index, Command.new(nail, before, after))
-	print("ind:\t%s" % index)
 	index += 1
 
 static func undo() -> Command:
@@ -21,7 +20,6 @@ static func undo() -> Command:
 		return null
 	else:
 		index -= 1
-		print("undo at: %s" % index)
 		return commands[index]
 
 static func redo() -> Command:
@@ -29,7 +27,6 @@ static func redo() -> Command:
 		return null
 	else:
 		var cmd = commands[index]
-		print("redo at: %s" % index)
 		index += 1
 		return cmd
 

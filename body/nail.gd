@@ -57,12 +57,7 @@ func brush(data: BrushData) -> float:
 
 
 func set_texture(img: Image) -> void:
-	print("image -> %s\t%s" % [image, img])
-	
-	var texture = ImageTexture.create_from_image(img)
-	print("texture -> %s\t%s" % [sprite.texture, texture])
-	
-	sprite.texture = texture
+	sprite.texture = ImageTexture.create_from_image(img)
 
 
 func get_rect() -> Rect2:

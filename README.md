@@ -19,11 +19,12 @@ You can play the game [here](https://wake1st.itch.io/colored-claws).
 	- [x] movement (left hold to "activate", right hold to "swivle")
 	- [x] fanning? (scroll wheel)
 - [x] color picking
-- [ ] cleaning pad?
 - [x] fingers
-- [ ] command pattern
+- [x] command pattern
 	- [x] basics
 	- [x] fix: multiple nail writes
+	- [ ] fix: overwrite issue
+- [ ] cleaning pad?
 - [ ] table
 	- [ ] color box
 	- [ ] brushs
