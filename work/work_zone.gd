@@ -66,8 +66,13 @@ func _process(_delta) -> void:
 		for nail in nails:
 			# only update the nail we draw to
 			if _check_brush_bounds(data, nail):
-				# store start for commands
 				if active_nail == null:
+					# setup for commands
+					active_nail = nail
+					before_image = nail.image.duplicate(true)
+				elif active_nail != nail:
+					# the nail has changed, set a new command
+					Commands.add(active_nail, before_image, active_nail.image.duplicate(true))
 					active_nail = nail
 					before_image = nail.image.duplicate(true)
 				
