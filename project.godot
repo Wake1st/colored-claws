@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="colored-claws"
-run/main_scene="uid://dme5dqe2t65if"
+run/main_scene="uid://dbu0dnjn5hk6j"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.520399, 0.00433013, 0.474071, 1)
 config/icon="res://icon.svg"

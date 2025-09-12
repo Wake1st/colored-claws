@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dme5dqe2t65if"]
+[gd_scene load_steps=7 format=3 uid="uid://dbu0dnjn5hk6j"]
 
 [ext_resource type="Script" uid="uid://cewxarx8scjqb" path="res://base/main.gd" id="1_3xxnu"]
-[ext_resource type="PackedScene" uid="uid://cof0q42w27hb4" path="res://work/work_zone.tscn" id="1_f47da"]
+[ext_resource type="PackedScene" uid="uid://dujb3mc1m2m6y" path="res://work/work_zone.tscn" id="1_f47da"]
 [ext_resource type="PackedScene" uid="uid://cyj3qmek05tbh" path="res://ui/popup_manager.tscn" id="2_f47da"]
 [ext_resource type="Texture2D" uid="uid://c1w4wgoe3beyx" path="res://assets/textures/Space Background.png" id="4_gwsun"]
-[ext_resource type="PackedScene" uid="uid://cpict4vjsumg" path="res://ui/hud.tscn" id="5_pex66"]
+[ext_resource type="PackedScene" uid="uid://cls6rm1oyvcnp" path="res://ui/hud.tscn" id="5_pex66"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gwsun"]
 blend_mode = 3

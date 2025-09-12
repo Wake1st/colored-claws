@@ -57,6 +57,7 @@ func brush(data: BrushData) -> float:
 
 
 func set_texture(img: Image) -> void:
+	image = img
 	sprite.texture = ImageTexture.create_from_image(img)
 
 

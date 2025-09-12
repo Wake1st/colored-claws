@@ -23,7 +23,7 @@ You can play the game [here](https://wake1st.itch.io/colored-claws).
 - [x] command pattern
 	- [x] basics
 	- [x] fix: multiple nail writes
-	- [ ] fix: overwrite issue
+	- [x] fix: overwrite issue
 - [ ] cleaning pad?
 - [ ] table
 	- [ ] color box
