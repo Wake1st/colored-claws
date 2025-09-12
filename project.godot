@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="colored-claws"
-run/main_scene="uid://dme5dqe2t65if"
+run/main_scene="uid://dbu0dnjn5hk6j"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.520399, 0.00433013, 0.474071, 1)
 config/icon="res://icon.svg"
@@ -20,6 +20,19 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "gray",
+"res://base/": "purple",
+"res://body/": "yellow",
+"res://resources/": "gray",
+"res://tests/": "red",
+"res://tools/": "yellow",
+"res://ui/": "orange",
+"res://work/": "yellow"
+}
 
 [input]
 

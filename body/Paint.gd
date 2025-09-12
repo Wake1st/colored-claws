@@ -9,6 +9,7 @@ static func draw_line(
 	angle: float, 
 	color: Color
 ) -> Image:
+	# draw the new image
 	var blend: Image = Image.create_empty(img.get_width(), img.get_height(), false, Image.FORMAT_RGBA8)
 	var rect = img.get_used_rect()
 	
@@ -36,5 +37,6 @@ static func draw_line(
 			if rect.has_point(Vector2(x + 1, y)):
 				blend.set_pixel(x + 1, y, color)
 	
+	# update image and return
 	img.blend_rect_mask(blend, img, img.get_used_rect(), Vector2.ZERO)
 	return img
