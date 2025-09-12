@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dujb3mc1m2m6y"]
+[gd_scene load_steps=7 format=3 uid="uid://dujb3mc1m2m6y"]
 
 [ext_resource type="Script" uid="uid://dofaksfjn7ble" path="res://work/work_zone.gd" id="1_ax42b"]
 [ext_resource type="PackedScene" uid="uid://cqw6q088qb4dy" path="res://body/nail.tscn" id="1_yga80"]
-[ext_resource type="PackedScene" uid="uid://dotua67jeg5fg" path="res://tools/brush.tscn" id="2_ax42b"]
+[ext_resource type="PackedScene" uid="uid://dotua67jeg5fg" path="res://tools/brush/brush.tscn" id="2_ax42b"]
+[ext_resource type="PackedScene" uid="uid://bid6p2glphhoq" path="res://work/selector.tscn" id="3_70tq2"]
+[ext_resource type="PackedScene" uid="uid://kd7bie28j37a" path="res://tools/tool_holder.tscn" id="3_esr3d"]
+[ext_resource type="PackedScene" uid="uid://cgigjcg4p1130" path="res://tools/pad/pad.tscn" id="5_xq6ba"]
 
 [node name="WorkZone" type="Node2D"]
 script = ExtResource("1_ax42b")
@@ -60,5 +63,21 @@ unique_name_in_owner = true
 position = Vector2(644, 61)
 rotation = 0.0503265
 
-[node name="Brush" parent="." instance=ExtResource("2_ax42b")]
-position = Vector2(0, -45)
+[node name="Selector" parent="." node_paths=PackedStringArray("holders") instance=ExtResource("3_70tq2")]
+holders = [NodePath("BrushHolder"), NodePath("PadHolder")]
+
+[node name="BrushHolder" parent="Selector" node_paths=PackedStringArray("tool") instance=ExtResource("3_esr3d")]
+position = Vector2(-117, -247)
+tool = NodePath("Brush")
+
+[node name="Brush" parent="Selector/BrushHolder" instance=ExtResource("2_ax42b")]
+unique_name_in_owner = true
+position = Vector2(0, 156)
+width = null
+
+[node name="PadHolder" parent="Selector" node_paths=PackedStringArray("tool") instance=ExtResource("3_esr3d")]
+position = Vector2(116, -247)
+tool = NodePath("Pad")
+
+[node name="Pad" parent="Selector/PadHolder" instance=ExtResource("5_xq6ba")]
+unique_name_in_owner = true

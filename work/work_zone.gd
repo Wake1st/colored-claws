@@ -20,7 +20,8 @@ const COMPLETENESS: float = 0.87
 @onready var nail_9: Nail = %Nail9
 @onready var nail_10: Nail = %Nail10
 
-@onready var brush: Brush = $Brush
+@onready var brush: Brush = %Brush
+@onready var pad: Pad = %Pad
 
 var nails: Array[Nail]
 var completed: bool
@@ -82,6 +83,25 @@ func _process(_delta) -> void:
 		if !completed && progress > COMPLETENESS:
 			emit_signal("job_complete")
 			completed = true
+	elif pad.active:
+		var data: PadData = pad.get_data()
+		
+		var progress: float = 0
+		for nail in nails:
+			# only update the nail we draw to
+			if _check_pad_bounds(data, nail):
+				if active_nail == null:
+					# setup for commands
+					active_nail = nail
+					before_image = nail.image.duplicate(true)
+				elif active_nail != nail:
+					# the nail has changed, set a new command
+					Commands.add(active_nail, before_image, active_nail.image.duplicate(true))
+					active_nail = nail
+					before_image = nail.image.duplicate(true)
+				
+				# draw on the nail
+				progress -= nail.clean(data) * 0.1
 	elif active_nail:
 		# store complete change
 		Commands.add(active_nail, before_image, active_nail.image.duplicate(true))
@@ -106,6 +126,24 @@ func _check_brush_bounds(data: BrushData, nail: Nail) -> bool:
 	
 	var arm = Vector2(data.width/2, 0)
 	arm.rotated(data.angle)
+	
+	var start_neg = data.start_position - arm
+	var start_pos = data.start_position + arm
+	var end_neg = data.end_position - arm
+	var end_pos = data.end_position + arm
+	
+	return (
+		rect.has_point(start_neg) || rect.has_point(start_pos)
+	) || (
+		rect.has_point(end_neg) || rect.has_point(end_pos)
+	)
+
+
+func _check_pad_bounds(data: PadData, nail: Nail) -> bool:
+	var rect: Rect2 = nail.get_rect()
+	rect.position += nail.global_position
+	
+	var arm = Vector2(data.radius/2, 0)
 	
 	var start_neg = data.start_position - arm
 	var start_pos = data.start_position + arm

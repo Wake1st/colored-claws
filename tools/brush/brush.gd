@@ -1,5 +1,5 @@
 class_name Brush
-extends Node2D
+extends Tool
 
 
 const ROTATION_OFFSET: float = PI/2
@@ -15,7 +15,6 @@ var color: Color
 
 var active: bool
 var pivoting: bool
-
 var last_position: Vector2
 
 
@@ -29,9 +28,7 @@ func get_data() -> BrushData:
 	return data
 
 
-func _process(_delta) -> void:
-	var mouse = get_global_mouse_position()
-	
+func process(_delta: float, mouse: Vector2) -> void:
 	if pivoting:
 		var vector = global_position.direction_to(mouse)
 		rotation = vector.angle() + ROTATION_OFFSET
@@ -40,7 +37,7 @@ func _process(_delta) -> void:
 		position = mouse - hold_offset
 
 
-func _input(event) -> void:
+func input(event: InputEvent) -> void:
 	if event.is_action_pressed("activate_brush"):
 		active = true
 	elif event.is_action_released("activate_brush"):

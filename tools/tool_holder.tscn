@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://kd7bie28j37a"]
+
+[ext_resource type="Script" uid="uid://cxq4vcxvwl4e5" path="res://tools/tool_holder.gd" id="1_87rdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_455b8"]
+size = Vector2(100, 200)
+
+[node name="ToolHolder" type="Area2D"]
+script = ExtResource("1_87rdl")
+
+[node name="Area2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_455b8")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

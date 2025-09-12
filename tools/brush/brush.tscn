@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dotua67jeg5fg"]
 
-[ext_resource type="Script" uid="uid://bxok70rmhr8o6" path="res://tools/brush.gd" id="1_kgsti"]
+[ext_resource type="Script" uid="uid://bxok70rmhr8o6" path="res://tools/brush/brush.gd" id="1_kgsti"]
 [ext_resource type="Texture2D" uid="uid://cgwo5pojc3cuw" path="res://assets/textures/brush.png" id="1_x3xu1"]
 
 [node name="Brush" type="Node2D"]
 script = ExtResource("1_kgsti")
+width = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
