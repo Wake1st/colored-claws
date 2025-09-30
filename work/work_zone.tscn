@@ -73,7 +73,6 @@ tool = NodePath("Brush")
 [node name="Brush" parent="Selector/BrushHolder" instance=ExtResource("2_ax42b")]
 unique_name_in_owner = true
 position = Vector2(0, 156)
-width = null
 
 [node name="PadHolder" parent="Selector" node_paths=PackedStringArray("tool") instance=ExtResource("3_esr3d")]
 position = Vector2(116, -247)

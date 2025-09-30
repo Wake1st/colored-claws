@@ -15,8 +15,8 @@ func get_data() -> PadData:
 
 
 func process(_delta: float, mouse: Vector2) -> void:
-	last_position = position
-	position = mouse
+	last_position = global_position
+	global_position = mouse
 
 
 func input(event: InputEvent) -> void:

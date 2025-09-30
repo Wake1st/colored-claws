@@ -42,39 +42,37 @@ static func draw_line(
 	return img
 
 
-func clear_circle(
+static func clear_circle(
 	img: Image,
 	start_position: Vector2, 
-	end_position: Vector2, 
-	radius: float 
+	_end_position: Vector2, 
+	radius: float
 ) -> Image:
-# draw the new image
+	# draw the new image
 	var blend: Image = Image.create_empty(img.get_width(), img.get_height(), false, Image.FORMAT_RGBA8)
 	var rect = img.get_used_rect()
-	#
-	#var circle_x = width * cos(angle)
-	#var circle_y = width * sin(angle)
-	#
-	#var current_position: Vector2 = start_position
-	#var paint_vector: Vector2 = end_position - start_position
-	#var height: int = ceili(paint_vector.length())
-	#for r in data.radius:
-		#for i in angle:
-			#current_position = paint_vector * height
-			#
-			#var x: int = start_position.x + current_position.x + circle_x/2 - i * cos(angle) - 1
-			#var y: int = start_position.y + current_position.y +  circle_y/2 - i * sin(angle) - 1
-			#
-			#if rect.has_point(Vector2(x, y)):
-				#blend.set_pixel(x, y, color)
-			#if rect.has_point(Vector2(x, y - 1)):
-				#blend.set_pixel(x, y - 1, color)
-			#if rect.has_point(Vector2(x, y + 1)):
-				#blend.set_pixel(x, y + 1, color)
-			#if rect.has_point(Vector2(x - 1, y)):
-				#blend.set_pixel(x - 1, y, color)
-			#if rect.has_point(Vector2(x + 1, y)):
-				#blend.set_pixel(x + 1, y, color)
+	var color = Color(0,0,0,0)
+	
+	for r in radius:
+		for i in range(0,2*PI):
+			var current_position = Vector2(
+				radius * cos(i),
+				radius * sin(i)
+			)
+			
+			var x: int = start_position.x + current_position.x
+			var y: int = start_position.y + current_position.y
+			
+			if rect.has_point(Vector2(x, y)):
+				blend.set_pixel(x, y, color)
+			if rect.has_point(Vector2(x, y - 1)):
+				blend.set_pixel(x, y - 1, color)
+			if rect.has_point(Vector2(x, y + 1)):
+				blend.set_pixel(x, y + 1, color)
+			if rect.has_point(Vector2(x - 1, y)):
+				blend.set_pixel(x - 1, y, color)
+			if rect.has_point(Vector2(x + 1, y)):
+				blend.set_pixel(x + 1, y, color)
 	
 	# update image and return
 	img.blend_rect_mask(blend, img, img.get_used_rect(), Vector2.ZERO)

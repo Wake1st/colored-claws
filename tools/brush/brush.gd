@@ -33,8 +33,8 @@ func process(_delta: float, mouse: Vector2) -> void:
 		var vector = global_position.direction_to(mouse)
 		rotation = vector.angle() + ROTATION_OFFSET
 	else:
-		last_position = position
-		position = mouse - hold_offset
+		last_position = global_position
+		global_position = mouse - hold_offset
 
 
 func input(event: InputEvent) -> void:
