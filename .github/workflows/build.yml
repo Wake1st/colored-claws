@@ -11,6 +11,10 @@ env:
   # There will be no upload to itch.io if this is commented out.
   itch_page: wake1st/colored-claws
 
+  # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
+  GODOT_VERSION: 4.3
+  EXPORT_NAME: project
+  PROJECT_PATH: .
 
 jobs:
   forward-env:
@@ -31,30 +35,67 @@ jobs:
     outputs:
       # Use the input from workflow dispatch, or fall back to the git ref.
       version: ${{ inputs.version || steps.ref.outputs.ref }}
-    
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [HTML5]
+  
+  export-web:
+    name: Web Export
+    runs-on: ubuntu-24.04  # Use 24.04 with godot 4
+    container:
+      image: barichello/godot-ci:4.3
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           lfs: true
-      - name: Build
-        id: build
-        uses: manleydev/build-godot-action@v1.4.1
-        with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "false"
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Web Build
+        run: |
+          mkdir -v -p build/web
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: client-${{ matrix.platform }}
+          name: web-itch
           path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
-
-# Upload all packages to itch.io.
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: web-pages
+      #     path: build/web
+      # - name: Install rsync 📚
+      #   run: |
+      #     apt-get update && apt-get install -y rsync
+      # - name: Deploy to GitHub Pages 🚀
+      #   uses: JamesIves/github-pages-deploy-action@releases/v4
+      #   with:
+      #     branch: gh-pages # The branch the action should deploy to.
+      #     folder: build/web # The folder the action should deploy.
+  # build:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       platform: [HTML5]
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         lfs: true
+  #     - name: Build
+  #       id: build
+  #       uses: manleydev/build-godot-action@v1.4.1
+  #       with:
+  #         name: example
+  #         preset: ${{ matrix.platform }}
+  #         debugMode: "false"
+  #     - name: Upload Artifact
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: client-${{ matrix.platform }}
+  #         path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+  
   upload-to-itch:
     runs-on: ubuntu-latest
     needs:
@@ -67,7 +108,7 @@ jobs:
       - name: Download all packages
         uses: actions/download-artifact@v4
         with:
-          pattern: client-*
+          pattern: web-itch
           path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
 
       - name: Install butler
