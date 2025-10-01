@@ -101,7 +101,7 @@ jobs:
     needs:
       - forward-env
       - get-version
-      - build
+      - export-web
     if: ${{ inputs.upload_to_itch && needs.forward-env.outputs.itch_page != '' }}
 
     steps:
