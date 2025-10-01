@@ -86,7 +86,6 @@ func _process(_delta) -> void:
 	elif pad.active:
 		var data: PadData = pad.get_data()
 		
-		var progress: float = 0
 		for nail in nails:
 			# only update the nail we draw to
 			if _check_pad_bounds(data, nail):
@@ -101,7 +100,7 @@ func _process(_delta) -> void:
 					before_image = nail.image.duplicate(true)
 				
 				# draw on the nail
-				progress -= nail.clean(data) * 0.1
+				nail.clean(data)
 	elif active_nail:
 		# store complete change
 		Commands.add(active_nail, before_image, active_nail.image.duplicate(true))

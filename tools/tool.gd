@@ -6,9 +6,9 @@ func get_data() -> ToolData:
 	return ToolData.new()
 
 
-func process(delta: float, mouse: Vector2) -> void:
+func process(_delta: float, _mouse: Vector2) -> void:
 	pass
 
 
-func input(event: InputEvent) -> void:
+func input(_event: InputEvent) -> void:
 	pass

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6dvnexpuuma3"]
+
+[ext_resource type="Script" uid="uid://cxq4vcxvwl4e5" path="res://tools/holder/tool_holder.gd" id="1_vrklg"]
+[ext_resource type="Texture2D" uid="uid://2tkbuk8hhe5i" path="res://assets/textures/Nail_Pollish_Bottle.png" id="2_lesgq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7rco"]
+radius = 59.0
+height = 244.0
+
+[node name="BrushHolder" type="Area2D"]
+script = ExtResource("1_vrklg")
+metadata/_custom_type_script = "uid://cxq4vcxvwl4e5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, -48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lesgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -47)
+shape = SubResource("CapsuleShape2D_k7rco")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

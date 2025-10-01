@@ -10,11 +10,11 @@ var focused: bool
 
 
 func holster() -> void:
-	tool.global_position = global_position
+	tool.position = Vector2.ZERO
 	tool.rotation = 0
 
 
-func _input(event) -> void:
+func _input(_event) -> void:
 	if focused && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		selected.emit(tool)
 

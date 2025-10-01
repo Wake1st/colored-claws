@@ -56,7 +56,7 @@ func brush(data: BrushData) -> float:
 	return pixel_changes.size() / pixel_count
 
 
-func clean(data: PadData) -> float:
+func clean(_data: PadData) -> float:
 	# reset the texture
 	var texture: CompressedTexture2D = load(NAIL_PATH)
 	sprite.texture = texture

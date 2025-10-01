@@ -22,8 +22,13 @@ func _input(event) -> void:
 
 
 func _handle_selection(tool: Tool) -> void:
-	# return current tool to holder
-	tool_sets[tool].holster()
-	
-	# set new tool
-	current_tool = tool
+	if tool == current_tool:
+		# return current tool to holder
+		tool_sets[tool].holster()
+		current_tool = null
+	elif current_tool:
+		# return current tool to holder
+		tool_sets[current_tool].holster()
+		current_tool = tool
+	else:
+		current_tool = tool
