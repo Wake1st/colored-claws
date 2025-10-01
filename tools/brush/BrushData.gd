@@ -1,4 +1,5 @@
 class_name BrushData
+extends ToolData
 
 
 var start_position: Vector2

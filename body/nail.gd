@@ -56,6 +56,16 @@ func brush(data: BrushData) -> float:
 	return pixel_changes.size() / pixel_count
 
 
+func clean(_data: PadData) -> float:
+	# reset the texture
+	var texture: CompressedTexture2D = load(NAIL_PATH)
+	sprite.texture = texture
+	image = texture.get_image()
+	
+	# reset progress
+	return 0
+
+
 func set_texture(img: Image) -> void:
 	image = img
 	sprite.texture = ImageTexture.create_from_image(img)

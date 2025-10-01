@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctkmsc21itg3o"]
+
+[ext_resource type="Script" uid="uid://cxq4vcxvwl4e5" path="res://tools/holder/tool_holder.gd" id="1_1ulb4"]
+[ext_resource type="Texture2D" uid="uid://dn5mtf8kj14s1" path="res://assets/textures/Cleaner_Pump.png" id="2_o2h5x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2feo"]
+radius = 113.0
+height = 332.0
+
+[node name="CleanerHolder" type="Area2D"]
+script = ExtResource("1_1ulb4")
+metadata/_custom_type_script = "uid://cxq4vcxvwl4e5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, -61)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_o2h5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -48)
+shape = SubResource("CapsuleShape2D_d2feo")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
